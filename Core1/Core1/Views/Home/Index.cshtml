@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>
+    *********** VIEW BAG ***************
+</h1>
+<h1>@ViewBag.Name</h1>
+<h1>@ViewBag.Age</h1>
+<h1>@ViewBag.Date_and_time</h1>
+<h1>@ViewBag.Salary</h1>
+<ul>
+    @foreach (var item in (List<string>)ViewBag.group)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<h1>
+    ************ VIEW DATA *****************
+</h1>
+
+<h3>@ViewData["Name"]</h3>
+<h3>@ViewData["Age"]</h3>
+<h3>@ViewData["Date_and_time"]</h3>
+<h3>@ViewData["Salary"]</h3>
+<u3>
+    @foreach (var item in (List<string>)ViewData["group"])
+    {
+        <li>@item</li>
+    }
+</u3>
+<h1>
+    ************* SESSION *****************
+</h1>
+
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<h1>@HttpContextAccessor.HttpContext.Session.GetString("Name")</h1>
+HttpContext.Session.GetString("Name");
